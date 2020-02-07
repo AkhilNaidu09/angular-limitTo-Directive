@@ -9,6 +9,9 @@ import {Directive, Input} from '@angular/core'
       @Input('limit-to') limitTo; 
       _onKeypress(e) {
          const limit = +this.limitTo;
-         if (e.target.value.length === limit) e.preventDefault();
+         if(e.target.value.length){
+         let textValue = e.target.value.replace(/[^0-9]/g,'')
+         if (textValue.length === limit) e.preventDefault();
+         }
       }
     }
